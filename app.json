@@ -1,0 +1,40 @@
+{
+  "expo": {
+    "name": "MealsToGo",
+    "slug": "MealsToGo",
+    "description": "dit is een stage portfolio project.",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/images/logo_eten.jpeg",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "image": "./assets/images/thuisbezorgd.jpg",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/images/eten1.jpg",
+        "backgroundColor": "#ffffff"
+      },
+      "package": "com.abdiwahaab.MealsToGo"
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
+    "plugins": [
+      "expo-font"
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "b8bbd513-84f9-4e54-a514-d800602f0c87"
+      }
+    }
+  }
+}
