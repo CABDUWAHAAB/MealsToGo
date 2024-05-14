@@ -28,15 +28,10 @@ const getVarient = (position, size, theme) => {
     return `${property}:${value}`;
 };
 
-export const Spacer = ({position, size, children}) => {
+export const Spacer = ({position = 'top', size = 'small', children}) => {
     const theme = useTheme();
     const varient  = getVarient(position, size, theme);
     return (
         <SpacerView variant={varient}>{children}</SpacerView>
     )
 };
-
-Spacer.defaultProps = {
-    position: 'top',
-    size: 'small'
-}

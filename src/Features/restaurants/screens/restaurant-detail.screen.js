@@ -30,8 +30,8 @@ export const RestaurantDetailScreen = ({ route }) => {
 								setBreakfastExpanded(!breakfastExpanded)
 							}
 						>
-							<List.Item title="First item" />
-							<List.Item title="Second item" />
+							<List.Item title="Sandwich" />
+							<List.Item title="Waffles" />
 						</List.Accordion>
 
 						{/* Lunch */}
@@ -43,8 +43,8 @@ export const RestaurantDetailScreen = ({ route }) => {
 							expanded={lunchExpanded}
 							onPress={() => setlunchExpanded(!lunchExpanded)}
 						>
-							<List.Item title="First item" />
-							<List.Item title="Second item" />
+							<List.Item title="Pizaa" />
+							<List.Item title="Spaghetti with Meatballs" />
 						</List.Accordion>
 
 						{/* Dinner */}
@@ -56,8 +56,8 @@ export const RestaurantDetailScreen = ({ route }) => {
 							expanded={dinnerExpanded}
 							onPress={() => setDinnerExpanded(!dinnerExpanded)}
 						>
-							<List.Item title="First item" />
-							<List.Item title="Second item" />
+							<List.Item title="Burritos" />
+							<List.Item title="Meatballs and rice" />
 						</List.Accordion>
 
 						{/* Drinks */}
@@ -69,8 +69,8 @@ export const RestaurantDetailScreen = ({ route }) => {
 							expanded={drinksExpanded}
 							onPress={() => setDrinksExpanded(!drinksExpanded)}
 						>
-							<List.Item title="First item" />
-							<List.Item title="Second item" />
+							<List.Item title="Coca Cola" />
+							<List.Item title="Orange Juice" />
 						</List.Accordion>
 				</ScrollView>
 			</SafeArea>

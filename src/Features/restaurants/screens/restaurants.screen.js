@@ -1,26 +1,22 @@
-import React, { useContext } from "react";
-import { FlatList, TouchableOpacity, View } from "react-native";
-// safeArea.component.js
-import { SafeArea } from "../../../Components/Utility/safeArea.component";
-// restaurant-info-card-component.js
-import { RestaurentInfoCard } from "../components/restaurants-info-card.component";
-// spacer.component.js
-import { Spacer } from "../../../Components/spacer/spacer.component";
+import React, { useContext, useState } from "react";
+import { TouchableOpacity, View } from "react-native";
 import styled from "styled-components/native";
-//
-import { RestaurantsContext } from "../../../Services/restaurants/restaurants.context";
-// ActivityIndicator and colors
 import { ActivityIndicator, MD2Colors } from "react-native-paper";
-// search.component.js
-import { Search } from "../components/search.component";
 
-const CardFlatList = styled(FlatList).attrs({
-	contentContainerStyle: {
-		padding: 16,
-	},
-})``;
+import { SafeArea } from "../../../Components/Utility/safeArea.component";
+import { Spacer } from "../../../Components/spacer/spacer.component";
+import {FavouriteBar} from "../../../Components/favourites/favourites-bar.component";
 
-const ViewLoader = styled(View)`
+import { RestaurantsContext } from "../../../Services/restaurants/restaurants.context";
+import { FavouritesContext } from "../../../Services/favorites/favourites.context";
+
+import { Search } from "../components/search.component"; 
+import { RestaurentInfoCard } from "../components/restaurants-info-card.component";
+
+import { RestaurantList } from "../components/restaurant-list.styles";
+
+
+const LoadeContainer = styled(View)`
 	position: absolute;
 	top: 50%;
 	left: 50%;
@@ -31,21 +27,24 @@ const Loader = styled(ActivityIndicator)`
 `;
 
 export const RestaurentsScreen = ({ navigation }) => {
-	const { isLoading, error, restaurants } = useContext(RestaurantsContext);
+	const { isLoading, restaurants } = useContext(RestaurantsContext);
+	const {favourites} = useContext(FavouritesContext);
+	const [isToggled, setIsToggled] = useState(false);
 
 	return (
 		<SafeArea>
 			{isLoading && (
-				<ViewLoader>
+				<LoadeContainer>
 					<Loader
 						size={50}
 						animating={true}
 						color={MD2Colors.red800}
 					/>
-				</ViewLoader>
+				</LoadeContainer>
 			)}
-			<Search />
-			<CardFlatList
+			<Search isFavouriteToggled={isToggled} onFavouriteToggled={() => setIsToggled(!isToggled)} />
+			{isToggled && (<FavouriteBar favourites={favourites} onNavigate={navigation.navigate}/>)}
+			<RestaurantList
 				data={restaurants}
 				renderItem={({ item }) => {
 					return (

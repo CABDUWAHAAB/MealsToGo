@@ -1,4 +1,4 @@
-import React, { useState, createContext, useEffect, } from "react";
+import React, { useState, createContext, useEffect, useMemo, } from "react";
 
 import { locationRequest, locationTransform } from "./location.service";
 
@@ -37,17 +37,17 @@ export const LocationContextProvider = ({ children }) => {
 	}, [keyword])
 
 
+	const locationContextValues = useMemo(() => ({
+		isLoading,
+		error,
+		location,
+		search: onSearch,
+		keyword,
+	}), [isLoading, error, location, keyword]);
+
 
 	return (
-		<LocationContext.Provider
-			value={{
-				isLoading,
-				error,
-				location,
-				search: onSearch,
-				keyword,
-			}}
-		>
+		<LocationContext.Provider value={locationContextValues}>
 			{children}
 		</LocationContext.Provider>
 	);
