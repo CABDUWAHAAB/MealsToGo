@@ -8,15 +8,26 @@
     },
     "preview2": {
       "android": {
-        "gradleCommand": ":app:assembleRelease"
+        "gradleCommand": ":app:assembleRelease",
+        "image": "default"
       }
     },
     "preview3": {
+      "android": {
+        "image": "default"
+      },
       "developmentClient": true
     },
     "preview4": {
+      "android": {
+        "image": "default"
+      },
       "distribution": "internal"
     },
-    "production": {}
+    "production": {
+      "android": {
+        "image": "default"
+      }
+    }
   }
 }
